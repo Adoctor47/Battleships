@@ -52,7 +52,39 @@ typedef enum tagShipType
 	MAX_SHIP
 }EShipType;
 
-//
+// Structure for Ship properties
+typedef struct tagShip
+{
+	EShipType m_eType;
+	int m_iSize;
+	int m_ihitsTaken;
+	bool m_bIsSunk;
+}TShip;
+
+// // TF: Class
+class CGrid
+{
+	// // TF: Specifier
+private:
+	// //: Array
+	ECellState m_aGridCells[GRID_SIZE][GRID_SIZE]
+
+Public:
+		// // TF: Constructor
+		CGrid();
+
+	// TF: Destructor
+	~CGrid();
+
+	// // TF:Copy Constructor
+	CGrid(const CGrid& _rOther);
+
+	void intializeGrid();
+	ECellState GetCellState(int _iRow, int _iCol) const;
+	void SetCellState(int _iRow, int _iCol, ECellState _eState);
+	bool IsValidCoordinate(int _iRow, int _iCol) const;
+};
+
 
 
 
